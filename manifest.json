@@ -1,0 +1,9 @@
+{
+  "name": "Squirtle Tracker",
+  "short_name": "Squirtle",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0b0710",
+  "theme_color": "#0b0710",
+  "description": "A simple feeding tracker for Squirtle."
+}

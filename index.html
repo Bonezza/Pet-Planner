@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0710" />
+  <title>Squirtle Tracker</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <div class="turtle">🐢</div>
+      <p class="eyebrow">MY TURTLE</p>
+      <h1>Squirtle</h1>
+      <p class="subtitle">Tiny dinosaur. Very important business.</p>
+    </section>
+
+    <section class="card">
+      <p class="label">Last fed</p>
+      <h2 id="lastFed">Not logged yet</h2>
+      <button id="feedButton">Feed Squirtle</button>
+      <button id="undoButton" class="secondary" hidden>Undo last feed</button>
+    </section>
+
+    <section class="card details">
+      <div>
+        <p class="label">Today</p>
+        <p id="todayDate"></p>
+      </div>
+      <div>
+        <p class="label">Meals logged</p>
+        <p id="mealCount">0</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
