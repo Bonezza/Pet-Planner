@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0710" />
+  <title>Pet Planner</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section id="homeView" class="view active-view">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">YOUR PETS</p>
+          <h1>Pet Planner</h1>
+        </div>
+        <button id="openAddPet" class="icon-button" aria-label="Add pet">＋</button>
+      </header>
+
+      <section id="petStripSection">
+        <div id="petList" class="pet-list"></div>
+      </section>
+
+      <section id="emptyState" class="empty-state" hidden>
+        <div class="empty-icon">🐾</div>
+        <h2>No pets yet</h2>
+        <p>Add your first pet to create their dashboard.</p>
+        <button id="emptyAddPet" class="primary-button">Add a pet</button>
+      </section>
+
+      <section id="dashboard" class="dashboard" hidden>
+        <div class="profile-card">
+          <div id="petAvatar" class="avatar">🐾</div>
+          <div class="profile-info">
+            <p id="petSpecies" class="eyebrow"></p>
+            <h2 id="petName"></h2>
+            <p id="petMeta" class="muted"></p>
+          </div>
+          <button id="editPet" class="mini-button" aria-label="Edit pet">✏️</button>
+        </div>
+
+        <div class="quick-summary">
+          <div class="summary-card">
+            <span class="summary-icon">🍽️</span>
+            <div>
+              <p class="summary-label">Last fed</p>
+              <strong id="lastFedText">Not logged yet</strong>
+            </div>
+          </div>
+          <button id="quickFeedButton" class="quick-action">Feed now</button>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-label">Sex</span>
+            <strong id="petSex">—</strong>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Weight</span>
+            <strong id="petWeight">—</strong>
+          </div>
+        </div>
+
+        <div class="feature-grid">
+          <button class="feature-card" data-feature="feeding">
+            <span class="feature-emoji">🍽️</span>
+            <span>Feeding</span>
+            <small id="feedingPreview">No meals logged</small>
+          </button>
+          <button class="feature-card" data-feature="health">
+            <span class="feature-emoji">❤️</span>
+            <span>Health</span>
+            <small>Track care and notes</small>
+          </button>
+          <button class="feature-card" data-feature="gallery">
+            <span class="feature-emoji">📸</span>
+            <span>Gallery</span>
+            <small>Photos and memories</small>
+          </button>
+          <button class="feature-card" data-feature="notes">
+            <span class="feature-emoji">📝</span>
+            <span>Notes</span>
+            <small>Anything important</small>
+          </button>
+          <button class="feature-card" data-feature="growth">
+            <span class="feature-emoji">📈</span>
+            <span>Growth</span>
+            <small>Weight and size</small>
+          </button>
+          <button class="feature-card habitat-card" data-feature="builder">
+            <span class="feature-emoji">🪵🌱</span>
+            <span>Habitat Build Mode</span>
+            <small>Coming soon</small>
+          </button>
+        </div>
+
+        <p id="featureMessage" class="feature-message"></p>
+      </section>
+    </section>
+
+    <section id="petsView" class="view">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">ALL PROFILES</p>
+          <h2>Pets</h2>
+        </div>
+        <button id="petsAddButton" class="icon-button small-plus">＋</button>
+      </div>
+      <div id="petsGrid" class="pets-grid"></div>
+    </section>
+
+    <section id="plannerView" class="view">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">COMING NEXT</p>
+          <h2>Planner</h2>
+        </div>
+      </div>
+      <div class="placeholder-card">
+        <div class="placeholder-icon">📅</div>
+        <h3>Reminders and schedules</h3>
+        <p>Feeding, medication, grooming, water changes and more will live here.</p>
+      </div>
+    </section>
+
+    <section id="builderView" class="view">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">BUILD BEFORE YOU MOVE IT</p>
+          <h2>Habitat Build Mode 🪵🌱</h2>
+        </div>
+      </div>
+      <div class="builder-preview">
+        <div class="tank-frame">
+          <div class="waterline"></div>
+          <div class="tank-object wood">🪵</div>
+          <div class="tank-object plant">🌿</div>
+          <div class="tank-object rock">🪨</div>
+          <div class="tank-floor"></div>
+        </div>
+        <h3>Interactive habitat design is next</h3>
+        <p>Move, resize, rotate and save layouts before changing the real habitat.</p>
+        <button class="primary-button" disabled>Enter Build Mode</button>
+      </div>
+    </section>
+
+    <section id="settingsView" class="view">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">APP OPTIONS</p>
+          <h2>Settings</h2>
+        </div>
+      </div>
+      <div class="placeholder-card">
+        <h3>Appearance</h3>
+        <p>Each pet already has their own accent colour. More app-wide settings are coming.</p>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-button active" data-view="homeView"><span>🏠</span><small>Home</small></button>
+    <button class="nav-button" data-view="petsView"><span>🐾</span><small>Pets</small></button>
+    <button class="nav-button" data-view="plannerView"><span>📅</span><small>Planner</small></button>
+    <button class="nav-button" data-view="builderView"><span>🪵</span><small>Build</small></button>
+    <button class="nav-button" data-view="settingsView"><span>⚙️</span><small>Settings</small></button>
+  </nav>
+
+  <dialog id="petDialog">
+    <form id="petForm">
+      <div class="dialog-header">
+        <div>
+          <p id="dialogEyebrow" class="eyebrow">NEW PROFILE</p>
+          <h2 id="dialogTitle">Add a pet</h2>
+        </div>
+        <button type="button" id="closeDialog" class="icon-button small">×</button>
+      </div>
+
+      <div class="photo-picker">
+        <div id="photoPreview" class="photo-preview">🐾</div>
+        <label class="photo-button">
+          Choose photo
+          <input id="photoInput" type="file" accept="image/*" capture="environment" hidden />
+        </label>
+      </div>
+
+      <label>
+        Pet name
+        <input id="nameInput" required maxlength="30" placeholder="e.g. Squirtle" />
+      </label>
+
+      <label>
+        Animal type
+        <select id="speciesInput" required>
+          <option value="">Choose one</option>
+          <option>Turtle</option>
+          <option>Fish</option>
+          <option>Dog</option>
+          <option>Cat</option>
+          <option>Bird</option>
+          <option>Snake</option>
+          <option>Lizard</option>
+          <option>Rabbit</option>
+          <option>Small animal</option>
+          <option>Horse</option>
+          <option>Other</option>
+        </select>
+      </label>
+
+      <label>
+        Breed or species
+        <input id="breedInput" maxlength="50" placeholder="Optional" />
+      </label>
+
+      <div class="two-column">
+        <label>
+          Birthday
+          <input id="birthdayInput" type="date" />
+        </label>
+
+        <label>
+          Sex
+          <select id="sexInput">
+            <option value="">Unknown</option>
+            <option>Female</option>
+            <option>Male</option>
+          </select>
+        </label>
+      </div>
+
+      <label>
+        Weight
+        <input id="weightInput" maxlength="20" placeholder="e.g. 850 g" />
+      </label>
+
+      <fieldset>
+        <legend>Accent colour</legend>
+        <div id="colourChoices" class="colour-choices"></div>
+      </fieldset>
+
+      <button type="submit" class="primary-button">Save pet</button>
+      <button type="button" id="deletePet" class="danger-button" hidden>Delete profile</button>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
