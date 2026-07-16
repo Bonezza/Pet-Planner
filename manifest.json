@@ -1,9 +1,0 @@
-{
-  "name": "Pet Planner",
-  "short_name": "Pet Planner",
-  "start_url": ".",
-  "display": "standalone",
-  "background_color": "#0b0710",
-  "theme_color": "#7c3aed",
-  "description": "A home for pets, wild friends, rescues, fosters and memorials, with logs, reminders and Habitat Build Mode."
-}
